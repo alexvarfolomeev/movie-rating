@@ -1,6 +1,6 @@
 package com.varfolomeev.movierating.repository;
 
-import com.varfolomeev.movierating.model.Movie;
+import com.varfolomeev.movierating.entity.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

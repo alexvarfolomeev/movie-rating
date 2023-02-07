@@ -1,6 +1,7 @@
 package com.varfolomeev.movierating.service;
 
-import com.varfolomeev.movierating.model.Movie;
+import com.varfolomeev.movierating.entity.Movie;
+import com.varfolomeev.movierating.model.MovieResponse;
 import com.varfolomeev.movierating.repository.GenreRepository;
 import com.varfolomeev.movierating.repository.MovieRepository;
 import lombok.AllArgsConstructor;
@@ -30,11 +31,12 @@ public class MovieService {
 //                        .duration(movie.getDuration())
 //                        .releaseDate(movie.getReleaseDate())
 //                        .mpaa(movie.getMpaa())
-//                        .genres(genreSet).build();
+//                        .genres(genreSet)
+//                        .build();
 //        movieRepository.save(movieEntity);
 //    }
 
-    @Transactional
+
     public Movie saveMovie(Movie movie) {
         var genreSet = movie.getGenres().stream()
                 .map(g -> genreRepository.findGenreByName(g.getName()))

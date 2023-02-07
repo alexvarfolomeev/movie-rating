@@ -1,16 +1,20 @@
-package com.varfolomeev.movierating.model;
+package com.varfolomeev.movierating.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name="genre")
+@EqualsAndHashCode(of = "name")
+@ToString
+@JsonIgnoreProperties({"movies"})
 public class Genre {
 
     @Id

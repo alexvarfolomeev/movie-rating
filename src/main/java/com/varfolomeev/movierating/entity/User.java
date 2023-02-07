@@ -1,4 +1,4 @@
-package com.varfolomeev.movierating.model;
+package com.varfolomeev.movierating.entity;
 
 import lombok.*;
 

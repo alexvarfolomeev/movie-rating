@@ -1,11 +1,12 @@
 package com.varfolomeev.movierating.controller;
 
+import com.varfolomeev.movierating.entity.Movie;
 import com.varfolomeev.movierating.exception.MovieException;
-import com.varfolomeev.movierating.model.Movie;
 import com.varfolomeev.movierating.service.MovieService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Set;
 
@@ -17,7 +18,7 @@ public class MovieController {
     private final MovieService movieService;
 
     @PostMapping("/add")
-    public ResponseEntity<?>addMovie(@RequestBody Movie movie){
+    public ResponseEntity<?> addMovie(@RequestBody Movie movie) {
         movieService.saveMovie(movie);
         return ResponseEntity.ok(movie.getName() + " saved");
     }
@@ -31,12 +32,12 @@ public class MovieController {
     }
 
     @GetMapping("/get-movies/all")
-    public List<Movie> getAllMovies(){
+    public List<Movie> getAllMovies() {
         return movieService.findAllMovies();
     }
 
     @PostMapping("/add-all-movies")
-    public Set<Movie> addAllMovies(@RequestBody Set<Movie> movies){
+    public Set<Movie> addAllMovies(@RequestBody Set<Movie> movies) {
         return movieService.saveAllMovies(movies);
     }
 }
