@@ -1,5 +1,6 @@
 package com.varfolomeev.movierating.entity;
 
+import com.varfolomeev.movierating.model.MpaaRating;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,7 +26,8 @@ public class Movie {
     private String description;
     private LocalDate releaseDate;
     private Integer duration;
-    private String mpaa;
+    @Enumerated(EnumType.STRING)
+    private MpaaRating mpaa;
 
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(
@@ -34,4 +36,7 @@ public class Movie {
             inverseJoinColumns = {@JoinColumn(name = "movie_id")}
     )
     private Set<Genre> genres = new HashSet<>();
+
+    @OneToMany(mappedBy = "movie")
+    private Set<Likes>likes;
 }
