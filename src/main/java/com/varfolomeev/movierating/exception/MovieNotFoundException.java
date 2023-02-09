@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class MovieException extends RuntimeException{
+public class MovieNotFoundException extends RuntimeException{
     private String message;
 }

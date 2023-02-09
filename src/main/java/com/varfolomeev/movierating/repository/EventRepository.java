@@ -1,13 +1,13 @@
 package com.varfolomeev.movierating.repository;
 
-import com.varfolomeev.movierating.entity.User;
+import com.varfolomeev.movierating.entity.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface EventRepository extends JpaRepository<Event, Long> {
     @Override
-    Optional<User> findById(Long aLong);
+    Optional<Event> findById(Long aLong);
 }

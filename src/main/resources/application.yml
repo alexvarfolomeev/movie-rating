@@ -13,3 +13,6 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL5Dialect
     database: mysql
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false

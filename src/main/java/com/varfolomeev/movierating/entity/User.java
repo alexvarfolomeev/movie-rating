@@ -1,12 +1,11 @@
 package com.varfolomeev.movierating.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 @Entity
@@ -20,5 +19,9 @@ public class User {
     private Long id;
     private String email;
     private String login;
-    private LocalDate birthday;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
+    @OneToMany(mappedBy = "user")
+    private Set<Likes> likes;
 }

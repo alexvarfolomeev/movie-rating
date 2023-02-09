@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
+//@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum MpaaRating {
     G("G"),
     PG("PG"),
@@ -26,8 +26,8 @@ public enum MpaaRating {
         return name;
     }
 
-    @JsonCreator
-    public static MpaaRating forObject(@JsonProperty("id") int id) {
-        return MpaaRating.values()[id - 1];
-    }
+//    @JsonCreator
+//    public static MpaaRating forObject(@JsonProperty("id") int id) {
+//        return MpaaRating.values()[id - 1];
+//    }
 }
