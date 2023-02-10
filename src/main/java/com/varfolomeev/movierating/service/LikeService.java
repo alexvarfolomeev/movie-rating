@@ -26,8 +26,6 @@ public class LikeService {
     private final MovieRepository movieRepository;
     private final ApplicationEventPublisher eventPublisher;
 
-    private final JdbcTemplate jdbcTemplate;
-
     @Transactional
     public void doLike(Long userId, Long movieId) {
         ensureUserExists(userId);

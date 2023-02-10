@@ -3,8 +3,6 @@ package com.varfolomeev.movierating.events.listener;
 import com.varfolomeev.movierating.entity.Event;
 import com.varfolomeev.movierating.events.UserLikedMovie;
 import com.varfolomeev.movierating.events.UserUnlikedMovie;
-import com.varfolomeev.movierating.model.EventType;
-import com.varfolomeev.movierating.model.OperationType;
 import com.varfolomeev.movierating.repository.EventRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.event.EventListener;

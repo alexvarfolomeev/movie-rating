@@ -47,7 +47,7 @@ public class MovieController {
     }
 
     @GetMapping("/likes/{id}")
-    public ResponseEntity<?> getAllMovieLikes(@PathVariable Long id) { // TODO: 09.02.2023 ПРОТЕСТИРОВАТЬ МЕТОД
+    public ResponseEntity<?> getAllMovieLikes(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body((long) likeService.findAllMovieLikes(id).size());
     }

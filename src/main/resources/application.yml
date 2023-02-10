@@ -16,3 +16,7 @@ spring:
   jackson:
     serialization:
       write-dates-as-timestamps: false
+s3:
+  url: http://localhost:9610
+  login: admin
+  password: adminadmin
