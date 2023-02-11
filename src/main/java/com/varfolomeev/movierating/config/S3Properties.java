@@ -1,12 +1,10 @@
 package com.varfolomeev.movierating.config;
 
 import lombok.Getter;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Getter
-@ConfigurationProperties(prefix = "s3")
 public class S3Properties {
     private final String endpoint = "http://localhost:9610";
     private final String login = "admin";
