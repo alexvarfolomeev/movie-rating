@@ -14,6 +14,7 @@ import java.util.Set;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("api/v1/movie")
 public class MovieController {
 
@@ -26,7 +27,7 @@ public class MovieController {
         return ResponseEntity.ok(movie.getName() + " saved");
     }
 
-    @GetMapping("/get-movies/{id}")
+    @GetMapping("/get/{id}")
     public Movie getMovie(@PathVariable Long id) {
         return movieService.findMovieById(id).orElseThrow(
                 () -> new MovieNotFoundException(
@@ -52,7 +53,7 @@ public class MovieController {
                 .body((long) likeService.findAllMovieLikes(id).size());
     }
 
-    @GetMapping("/get-movies/all")
+    @GetMapping("/get/all")
     public List<Movie> getAllMovies() {
         return movieService.findAllMovies();
     }
