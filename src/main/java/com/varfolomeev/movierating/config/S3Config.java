@@ -18,8 +18,8 @@ public class S3Config {
     @Bean
     public AmazonS3Client amazonS3Client() {
         var credentials = new BasicAWSCredentials(
-                properties.getLogin(),
-                properties.getPassword()
+                properties.getAccessKey(),
+                properties.getSecretKey()
         );
         var clientConfig = new ClientConfiguration();
         clientConfig.setMaxConnections(properties.getMaxConnections());
@@ -31,7 +31,7 @@ public class S3Config {
         return (AmazonS3Client) AmazonS3ClientBuilder
                 .standard()
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
-                .withRegion(Regions.AF_SOUTH_1)
+                .withRegion(Regions.EU_CENTRAL_1)
                 .withClientConfiguration(clientConfig)
                 .build();
     }

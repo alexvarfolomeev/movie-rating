@@ -6,10 +6,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Getter
 public class S3Properties {
-    private final String endpoint = "http://localhost:9610";
-    private final String login = "admin";
-    private final String password = "admin";
-    private final String bucketName= "movie-rate-pics";
+    private final String accessKey = "AKIARU2ZFDTZ2RD5X7VV";
+    private final String secretKey = "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";
+    private final String bucketName= "movie-rate-posters";
     private final Integer maxConnections = 500;
     private final Integer requestTimeout = 180000;
     private final Integer clientExecutionTimeout = 180000;
