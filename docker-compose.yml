@@ -1,0 +1,28 @@
+services:
+  db:
+    image: mysql:8.0
+    ports:
+      - 3610:3306
+    volumes:
+      - movie_rate:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=movie-rating
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
+
+  minio:
+    image: minio/minio:latest
+    ports:
+      - 9610:9000
+      - 9611:9611
+    volumes:
+      - minio_data:/data
+    command: server --console-address ":9611" /data
+    environment:
+      - MINIO_REGION_NAME=movie_rate
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=adminadmin
+volumes:
+  movie_rate:
+  minio_data:
+    driver: local
