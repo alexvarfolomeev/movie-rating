@@ -26,6 +26,7 @@ public class Movie {
     private String description;
     private LocalDate releaseDate;
     private Integer duration;
+    private String moviePosterKey;
     @Enumerated(EnumType.STRING)
     private MpaaRating mpaa;
 

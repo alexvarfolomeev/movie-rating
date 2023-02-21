@@ -10,7 +10,6 @@ import com.varfolomeev.movierating.repository.MovieRepository;
 import com.varfolomeev.movierating.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

@@ -16,15 +16,12 @@ public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String fileGUID;
-
     @Column(nullable = false)
     private String name;
-
     @Column(nullable = false)
     private String contentType;
-
+    private Long movieId;
     @Column(name = "date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDate createdAt;
 }

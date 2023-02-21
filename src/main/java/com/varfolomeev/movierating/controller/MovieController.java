@@ -2,8 +2,10 @@ package com.varfolomeev.movierating.controller;
 
 import com.varfolomeev.movierating.entity.Movie;
 import com.varfolomeev.movierating.exception.MovieNotFoundException;
+import com.varfolomeev.movierating.service.FileService;
 import com.varfolomeev.movierating.service.LikeService;
 import com.varfolomeev.movierating.service.MovieService;
+import com.varfolomeev.movierating.service.S3StorageService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
