@@ -24,11 +24,14 @@ public class Movie {
     private String name;
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
+    private String country;
+    private String director;
     private LocalDate releaseDate;
     private Integer duration;
     private String moviePosterKey;
     @Enumerated(EnumType.STRING)
     private MpaaRating mpaa;
+    private Integer age;
 
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(

@@ -7,12 +7,14 @@ import com.varfolomeev.movierating.repository.EventRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import static com.varfolomeev.movierating.model.EventType.LIKE_EVENT;
 import static com.varfolomeev.movierating.model.OperationType.EVENT_OPERATION_ADD;
 import static com.varfolomeev.movierating.model.OperationType.EVENT_OPERATION_REMOVE;
 
 @Component
+@CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 public class LikeEventListener {
 

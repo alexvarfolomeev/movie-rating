@@ -11,6 +11,7 @@ import com.varfolomeev.movierating.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
@@ -18,6 +19,7 @@ import java.util.Collection;
 
 @Service
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class LikeService {
 
     private final LikeRepository likeRepository;
@@ -27,8 +29,8 @@ public class LikeService {
 
     @Transactional
     public void doLike(Long userId, Long movieId) {
-        ensureUserExists(userId);
-        ensureFilmExists(movieId);
+        isUserExists(userId);
+        isFilmExists(movieId);
 
         likeRepository.save(Likes.builder()
                 .user(userRepository.findById(userId).orElseThrow())
@@ -40,8 +42,8 @@ public class LikeService {
 
     @Transactional
     public void doUnlike(long userId, long movieId) {
-        ensureUserExists(userId);
-        ensureFilmExists(movieId);
+        isUserExists(userId);
+        isFilmExists(movieId);
         var like = likeRepository.findLikesByUserIdAndMovieId(userId, movieId);
         like.ifPresent(l -> {
             likeRepository.delete(l);
@@ -54,12 +56,12 @@ public class LikeService {
         return likeRepository.findAllByMovieMovieId(movieId);
     }
 
-    private void ensureUserExists(long userId) {
+    private void isUserExists(long userId) {
         userRepository.findById(userId).orElseThrow(() ->
                 new UserNotFoundException(String.valueOf(userId)));
     }
 
-    private void ensureFilmExists(long filmId) {
+    private void isFilmExists(long filmId) {
         movieRepository.findById(filmId).orElseThrow(() ->
                 new MovieNotFoundException(String.valueOf(filmId)));
     }
