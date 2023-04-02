@@ -17,6 +17,7 @@ public class UserController {
     public String getUserGreeting(){
         return "greetings!";
     }
+
     @PostMapping("/add")
     public ResponseEntity<User>addUser(@RequestBody User user){
         userService.saveUser(user);

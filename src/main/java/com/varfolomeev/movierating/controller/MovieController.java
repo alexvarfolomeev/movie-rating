@@ -64,4 +64,9 @@ public class MovieController {
     public Set<Movie> addAllMovies(@RequestBody Set<Movie> movies) {
         return movieService.saveAllMovies(movies);
     }
+
+    @GetMapping("/get/favourite-movies/{userId}")
+    public List<Movie> getFavouriteMovies(@PathVariable Long userId) {
+        return movieService.findLikedMovies(userId);
+    }
 }

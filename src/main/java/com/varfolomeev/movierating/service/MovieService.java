@@ -3,11 +3,13 @@ package com.varfolomeev.movierating.service;
 import com.varfolomeev.movierating.entity.Movie;
 import com.varfolomeev.movierating.exception.MovieNotFoundException;
 import com.varfolomeev.movierating.repository.GenreRepository;
+import com.varfolomeev.movierating.repository.LikeRepository;
 import com.varfolomeev.movierating.repository.MovieRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -19,6 +21,7 @@ public class MovieService {
 
     private final MovieRepository movieRepository;
     private final GenreRepository genreRepository;
+    private final LikeRepository likeRepository;
 
     @Transactional
     public Movie saveMovie(Movie movie) {
@@ -51,5 +54,9 @@ public class MovieService {
 
     public Optional<Movie> findMovieByName(String name){
         return movieRepository.findMovieByName(name);
+    }
+
+    public List<Movie> findLikedMovies(Long userId) {
+        return likeRepository.findAllLikedMovies(userId);
     }
 }
