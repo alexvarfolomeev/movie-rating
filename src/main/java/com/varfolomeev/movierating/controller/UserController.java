@@ -19,7 +19,7 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<User>addUser(@RequestBody User user){
+    public ResponseEntity<User>addUser(@RequestBody User user) throws Exception {
         userService.saveUser(user);
         return ResponseEntity.status(HttpStatus.OK).body(user);
     }

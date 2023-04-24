@@ -45,18 +45,6 @@ public class FileController {
         return guid;
     }
 
-//    @GetMapping("/download/{id}")
-//    public ResponseEntity<InputStreamResource> downloadFile(@PathVariable Long movieId){
-//        var key = movieService.findMovieById(movieId).orElseThrow();
-//        var s3File = s3StorageService.getObject(key.getMoviePosterKey());
-//        return ResponseEntity.ok()
-//                .headers((header) -> {
-//                    header.setContentLength(s3File.getObjectMetadata().getContentLength());
-//                    header.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-//                })
-//                .body(new InputStreamResource(s3File.getObjectContent()));
-//    }
-
     @GetMapping("/download/{movieId}")
     public byte[] downloadFileBytes(@PathVariable Long movieId){
         var key = movieService.findMovieById(movieId)

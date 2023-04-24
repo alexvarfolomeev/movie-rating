@@ -10,3 +10,6 @@ INSERT INTO genre(name) VALUES ('Криминал');
 INSERT INTO genre(name) VALUES ('Фантастика');
 INSERT INTO genre(name) VALUES ('Военный');
 INSERT INTO genre(name) VALUES ('Боевик');
+
+INSERT INTO role(name) VALUES ('USER');
+INSERT INTO role(name) VALUES ('ADMIN');
